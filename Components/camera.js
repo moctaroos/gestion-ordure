@@ -79,7 +79,7 @@ export default class CameraView extends React.Component {
                               </Item>
                               </Form>
                               <Button block onPress={()=>this.send()}>
-                                <Text style={{fontSize:20, color:'#fff'}}>Send To The Server</Text>
+                                <Text style={{fontSize:20, color:'#fff'}}>Send</Text>
                               </Button>
                               </ScrollView>
                           </Content>
@@ -172,7 +172,7 @@ export default class CameraView extends React.Component {
         data.append('date', this.state.date);
 
 
-       const res = await axios.post("http://192.168.1.9:8000/details", data,{
+       const res = await axios.post("http://192.168.1.15:9000/details", data,{
         headers: {
           'accept': 'application/json',
           'Accept-Language': 'en-US,en;q=0.8',
@@ -180,10 +180,14 @@ export default class CameraView extends React.Component {
         }
       })
       .then((res) => {
-        alert("Ok")
+        alert("send successfully")
       }).catch((error) => {
         console.log(error)
       });
 
     }
+
+  viewPhoto(){
+
+  }
 }

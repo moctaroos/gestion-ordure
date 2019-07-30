@@ -27,7 +27,7 @@ export default class Profile extends React.Component {
           <TouchableOpacity style={{
                 justifyContent: 'center',
                 flexDirection : 'row',
-                backgroundColor: '#428AF8',
+                backgroundColor: '#FFD700',
                 alignItems : 'center',
                 marginLeft: 15,
                 marginRight: 15,
@@ -52,3 +52,57 @@ export default class Profile extends React.Component {
       this.props.navigation.navigate("Login");
     }
   }
+
+// import React, { Component } from 'react';
+// import { View, Text,ScrollView} from 'react-native';
+
+// class Profile extends Component {
+//   constructor(){
+//     super();
+//       this.state = {
+//         data: [],
+//         available: false
+//         }
+//     }
+
+//     componentDidMount() 
+//     {
+//       fetch("http://192.168.1.15:9000/signup").
+//         then((Response) => Response.json()).
+//           then ((findresponse)=>
+//             {
+//               this.setState({
+//                 data: findresponse.data, available: true
+//                   });
+     
+//             }) 
+//     }
+
+//     render() 
+//     {
+//       return(
+//         <ScrollView >
+//         <View style={{flex: 1, backgroundColor:"#1e272e"}}>
+//                 <View  style={{ flex:1, justifyContent:'center', alignItems:'center'}}>
+//                   {
+
+//                   this.state.data.map((valeur, i) => {
+//                     return(
+                     
+//                       <View key={i} style={{padding: 20}}>
+//                           <Text style={{fontSize:20,color:'#fff'}}>Email:{valeur.email}</Text>
+//                           <Text style={{fontSize:20,color:'#fff'}}>Password:{valeur.password}</Text>
+//                       </View>
+//                       );
+//                   })
+
+        
+//                   }
+//                 </View>
+//         </View>
+//         </ScrollView>
+//         )
+//     }
+// }
+
+// export default Profile;

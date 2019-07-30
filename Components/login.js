@@ -38,13 +38,13 @@ export default class Login extends  React.Component{
                         >
                                 <Text style={styles.btntxt}>Login</Text>
                             </TouchableOpacity >
-{/*                             
+                             
                             <TouchableOpacity 
                                 style={styles.btn}
-                                onPress={()=> alert('SignUp Works')}
+                                onPress={()=>this.props.navigation.navigate("SignUp")}
                             >
                                 <Text style={styles.btntxt}>SignUp</Text>
-                        </TouchableOpacity> */}
+                        </TouchableOpacity>
                 </View>
                    
             </View>
@@ -54,32 +54,32 @@ export default class Login extends  React.Component{
 
     login = () => {
 
-        fetch('http://192.168.1.9:8000/users', {
-            method:'POST',
-            headers:{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-                body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password,
+            fetch('http://192.168.1.15:9000/users', {
+                method:'POST',
+                headers:{
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                    body: JSON.stringify({
+                    username: this.state.username,
+                    password: this.state.password,
+                })
             })
-        })
+            
+            .then((response) => response.json())
+            .then((res) => {
+                if(res.success){
+                this.props.navigation.navigate("homeGen");
+                }else{
+                    alert(res.message);
+                }
+
+            })
+            .done();
+
+            
         
-        .then((response) => response.json())
-        .then((res) => {
-            if(res.success){
-              this.props.navigation.navigate("homeGen");
-            }else{
-                alert(res.message);
-            }
-
-        })
-        .done();
-
-          
-    
-}
+    }
 }
 
 
@@ -105,11 +105,11 @@ const styles = StyleSheet.create({
     btn:{
         backgroundColor:'#FFD700',
         padding:15,
-        width:'100%'
+        width:'45%'
     },
     btnContainer:{
         flexDirection:'row',
-        justifyContent:'center',
+        justifyContent:'space-between',
         width:'90%'
     },
     btntxt:{
